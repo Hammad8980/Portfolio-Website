@@ -9,7 +9,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Layout showHeader={false} showFooter={false}>
+              <Home />
+            </Layout>
+          }
+        />
         <Route
           path="/projects"
           element={

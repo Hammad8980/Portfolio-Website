@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
+import axios from 'axios';
 import { useState } from 'react';
+import Toast, { ToastType } from '../components/Toast/Toast';
+import WhatsAppWidget from '../components/WhatsAppWidget/WhatsAppWidget';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,18 +11,38 @@ const Contact = () => {
     subject: '',
     message: '',
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending'>('idle');
+  const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(
+    null
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
+    setToast(null);
 
-    // Simulate API call (replace with actual backend endpoint later)
-    setTimeout(() => {
-      setStatus('success');
+    try {
+      await axios.post('/api/contact', formData);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+      setToast({
+        type: 'success',
+        message: "Message sent successfully! I'll get back to you soon.",
+      });
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+
+      let message = 'Something went wrong. Please try again in a moment.';
+      if (axios.isAxiosError(err)) {
+        const apiError = err.response?.data?.error;
+        if (typeof apiError === 'string') {
+          message = apiError;
+        }
+      }
+
+      setToast({ type: 'error', message });
+    } finally {
+      setStatus('idle');
+    }
   };
 
   const handleChange = (
@@ -141,12 +164,6 @@ const Contact = () => {
               >
                 {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
-
-              {status === 'success' && (
-                <p className="text-green-600 text-sm text-center">
-                  Message sent successfully! I'll get back to you soon.
-                </p>
-              )}
             </form>
           </motion.div>
 
@@ -258,7 +275,7 @@ const Contact = () => {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/hammadmehmood0"
+                  href="https://github.com/Hammad8980"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-[#2159E8] hover:text-white transition-colors"
@@ -301,6 +318,17 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+          className="bottom-24 right-6"
+        />
+      )}
+
+      <WhatsAppWidget />
     </div>
   );
 };

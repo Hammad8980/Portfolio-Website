@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback, type CSSProperties } from 'react';
+import { useRef, useState, useEffect, type CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 
 interface BadgePosition {

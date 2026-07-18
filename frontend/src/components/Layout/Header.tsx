@@ -55,7 +55,7 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com/hammadmehmood0"
+              href="https://github.com/Hammad8980"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-[#2159E8] transition-colors"

@@ -108,7 +108,7 @@ npm run preview
 ## 🔗 Your Links
 
 All these are already configured:
-- GitHub: https://github.com/hammadmehmood0
+- GitHub: https://github.com/Hammad8980
 - LinkedIn: https://www.linkedin.com/in/hammad-mehmood-b82b24229/
 - Email: hammad.mehmood898@gmail.com
 

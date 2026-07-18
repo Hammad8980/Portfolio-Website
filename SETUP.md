@@ -106,7 +106,7 @@ const desktopBadges: BadgePosition[] = [
 - Hero title: "Full-Stack Developer | AI SaaS Specialist"
 - Main title: "Hi, I'm Hammad Mehmood"
 - Subtitle: "Full-Stack Engineer from Islamabad, Pakistan..."
-- GitHub: https://github.com/hammadmehmood0
+- GitHub: https://github.com/Hammad8980
 - Email: hammad.mehmood898@gmail.com
 
 ### 4. Add Your Content

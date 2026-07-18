@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -21,36 +23,36 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-gray-600 hover:text-[#2159E8] text-sm transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/projects"
+                <Link
+                  to="/projects"
                   className="text-gray-600 hover:text-[#2159E8] text-sm transition-colors"
                 >
                   Projects
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/experience"
+                <Link
+                  to="/experience"
                   className="text-gray-600 hover:text-[#2159E8] text-sm transition-colors"
                 >
                   Experience
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="text-gray-600 hover:text-[#2159E8] text-sm transition-colors"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -61,7 +63,7 @@ const Footer = () => {
             </h4>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/hammadmehmood0"
+                href="https://github.com/Hammad8980"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-[#2159E8] transition-colors"
