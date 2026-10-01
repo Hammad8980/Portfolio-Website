@@ -22,7 +22,9 @@ const Contact = () => {
     setToast(null);
 
     try {
-      await axios.post('/api/contact', formData);
+      // Use environment variable for API URL in production, fallback to proxy in development
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      await axios.post(`${apiUrl}/api/contact`, formData);
       setFormData({ name: '', email: '', subject: '', message: '' });
       setToast({
         type: 'success',

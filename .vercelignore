@@ -1,0 +1,20 @@
+# Environment files (configure in Vercel dashboard instead)
+.env
+.env.local
+.env.*.local
+
+# Development files
+node_modules
+*.log
+.DS_Store
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Testing
+coverage
+*.test.ts
+*.spec.ts

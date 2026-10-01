@@ -9,15 +9,26 @@ interface ContactEmailPayload {
 }
 
 /**
- * Nodemailer SMTP email service.
+ * Nodemailer SMTP email service (serverless-optimized).
  */
 export class EmailService {
   private transporter: nodemailer.Transporter | null = null;
   private initPromise: Promise<nodemailer.Transporter> | null = null;
+  private lastCreated: number = 0;
+  private readonly TRANSPORTER_LIFETIME = 5 * 60 * 1000; // 5 minutes
 
   private async getTransporter(): Promise<nodemailer.Transporter> {
-    if (this.transporter) {
+    const now = Date.now();
+    
+    // Recreate transporter if it's older than TRANSPORTER_LIFETIME (serverless optimization)
+    if (this.transporter && now - this.lastCreated < this.TRANSPORTER_LIFETIME) {
       return this.transporter;
+    }
+
+    // Reset if stale
+    if (this.transporter) {
+      this.transporter = null;
+      this.initPromise = null;
     }
 
     if (!this.initPromise) {
@@ -25,6 +36,7 @@ export class EmailService {
     }
 
     this.transporter = await this.initPromise;
+    this.lastCreated = now;
     return this.transporter;
   }
 
