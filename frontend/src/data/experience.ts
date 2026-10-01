@@ -11,10 +11,37 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    id: 'rev9',
+    title: 'MERN Stack Developer',
+    company: 'Rev9 Solutions',
+    location: 'Remote',
+    period: 'Apr 2026 – Jul 2026',
+    description:
+      'Led solo full-stack rebuild of multi-brand ecommerce storefront (SwagPrint), migrating legacy PHP to modern Next.js/NestJS architecture.',
+    responsibilities: [
+      'Architected three-tier system with Next.js storefront, NestJS GraphQL gateway, and NestJS REST backend (Prisma + MySQL)',
+      'Implemented hybrid "strangler pattern" migration enabling zero-downtime incremental rollout while maintaining legacy PHP transactional flows',
+      'Built server-side live pricing engines for four product configurators (lanyard, wristband, can cooler, PVC) with strict cache bypass for accuracy',
+      'Introduced Redis caching at gateway/API layers for catalog data while excluding live quotes to prevent pricing discrepancies',
+      'Resolved critical homepage performance issues (ISR misconfiguration, redundant GraphQL calls) improving time-to-first-byte',
+      'Converted Figma designs into responsive pages; conducted biweekly client syncs and owned end-to-end client communication',
+    ],
+    technologies: [
+      'Next.js',
+      'NestJS',
+      'Apollo GraphQL',
+      'TypeScript',
+      'Prisma',
+      'MySQL',
+      'Redis',
+      'Node.js',
+    ],
+  },
+  {
     id: 'dafinitiq',
     title: 'Full-Stack Developer',
     company: 'Dafinitiq AI',
-    location: 'Remote',
+    location: 'Onsite',
     period: 'Sep 2024 – Feb 2026',
     description:
       'Architected and delivered scalable full-stack systems for AI-powered SaaS products.',
@@ -43,7 +70,7 @@ export const experiences: Experience[] = [
     id: 'jazba',
     title: 'Software Developer Intern',
     company: 'Jazba Innovations',
-    location: 'Islamabad, Pakistan',
+    location: 'Onsite',
     period: 'May 2024 – Jul 2024',
     description:
       'Developed and maintained full-stack features with focus on testing and optimization.',
@@ -67,7 +94,7 @@ export const experiences: Experience[] = [
     id: 'nft-fusion-dev',
     title: 'Full-Stack Developer',
     company: 'NFT-Fusion',
-    location: 'Remote',
+    location: 'Hybrid',
     period: 'Jan 2024 – Jul 2024',
     description:
       'Developed blockchain-based marketplace for code and digital assets.',

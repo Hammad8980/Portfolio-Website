@@ -14,6 +14,31 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'swagprint',
+    title: 'SwagPrint',
+    company: 'Rev9 Solutions',
+    description: 'Multi-Brand Ecommerce Platform Migration',
+    longDescription:
+      'Solo-led full-stack migration of legacy PHP ecommerce platform to modern Next.js/NestJS architecture with Apollo GraphQL gateway.',
+    technologies: [
+      'Next.js',
+      'NestJS',
+      'Apollo GraphQL',
+      'TypeScript',
+      'Prisma',
+      'MySQL',
+      'Redis',
+      'TailwindCSS',
+    ],
+    highlights: [
+      'Architected three-tier system with GraphQL gateway as sole API boundary',
+      'Implemented zero-downtime strangler pattern migration strategy',
+      'Built live pricing engines for 4 product configurators with cache bypass',
+      'Redis caching strategy improved catalog performance while maintaining pricing accuracy',
+    ],
+    period: '2026',
+  },
+  {
     id: 'friska',
     title: 'Friska',
     company: 'Dafinitiq AI',
