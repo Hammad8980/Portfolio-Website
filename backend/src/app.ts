@@ -8,10 +8,10 @@ const app = express();
 app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 app.use(express.json());
 
-app.get('/api/health', (_req, res) => {
+app.get('/health', (_req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
 
-app.use('/api/contact', contactRoutes);
+app.use('/contact', contactRoutes);
 
 export default app;
